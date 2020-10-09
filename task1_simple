@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+long Fibbonachi(long int number)
+{
+  
+  long int F1 = 1;
+  long int F2 = 1;
+  long int next_number;
+
+  if (number <= 2)
+  {
+    return 1;
+  } 
+    
+  else 
+  {
+
+    for(int i = 3; i <= number; i++) 
+    {
+      next_number = F1 + F2; 
+      F1 = F2; 
+      F2 = next_number; 
+    }
+
+  }
+
+  return F2;
+}
+
+int main(void)
+{
+  long int number;
+
+  printf("Введите элемент числовой последовательности F= ");
+  scanf("%li",&number);
+
+  printf("%li",Fibbonachi (number));
+  
+  
+  return 0;
+}
