@@ -27,15 +27,16 @@ long Fibbonachi(long int number)
   return F2;
 }
 
-int main(void)
+int main()
 {
   long int number;
 
   printf("Введите элемент числовой последовательности F= ");
   scanf("%li",&number);
 
-  printf("%li",Fibbonachi (number));
+  printf("Элемент числовой последовательности = %li",Fibbonachi(number));
   
   
   return 0;
 }
+
