@@ -1,42 +1,35 @@
 #include <stdio.h>
 
-long Fibbonachi(long int number)
+long int get_fibbonachi_via_cycle(int number)
 {
-  
-  long int F1 = 1;
-  long int F2 = 1;
+  long int f1 = 1;
+  long int f2 = 1;
   long int next_number;
 
   if (number <= 2)
   {
     return 1;
   } 
-    
   else 
   {
-
     for(int i = 3; i <= number; i++) 
     {
-      next_number = F1 + F2; 
-      F1 = F2; 
-      F2 = next_number; 
+      next_number = f1 + f2; 
+      f1 = f2; 
+      f2 = next_number; 
     }
-
   }
 
-  return F2;
+  return f2;
 }
 
 int main()
 {
-  long int number;
+  int number;
+  scanf("%d", &number);
+  printf("%li", get_fibbonachi_via_cycle(number));
 
-  printf("Введите элемент числовой последовательности F= ");
-  scanf("%li",&number);
-
-  printf("Элемент числовой последовательности = %li",Fibbonachi(number));
-  
-  
   return 0;
 }
+
 
