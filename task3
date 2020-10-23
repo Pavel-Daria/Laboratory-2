@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char char_to_int(int num)
+char int_to_char(int num)
 {
   if (num >= 0 && num <= 9)
   {
@@ -41,7 +41,7 @@ void power(int number, int source, int target)
   while (result_in_decimal_notation > 0)
   {
     static int i = 0;
-    result[i++] = char_to_int(result_in_decimal_notation % target);
+    result[i++] = int_to_char(result_in_decimal_notation % target);
     result_in_decimal_notation = result_in_decimal_notation / target;
     if (result_in_decimal_notation <= 0)
     {
