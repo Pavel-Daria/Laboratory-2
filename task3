@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+
+char char_to_int(int num)
+{
+  if (num >= 0 && num <= 9)
+  {
+    return num + '0';
+  }
+  else if (num >= 10 && num <= 36)
+  {
+    return num - 10 + 'A';
+  }
+  else
+  {
+    return ' ';
+  }
+}
+
+void power(int number, int source, int target)
+{
+  int result_in_decimal_notation = 0;
+  char result[30];
+  for (int i = 0; i < 30; i++)
+  {
+    result[i] = 0;
+  }
+
+  while (number > 0)
+  {
+    static int pow = 1;
+    result_in_decimal_notation = result_in_decimal_notation + (number % 10 * pow);
+    pow = pow * source;
+    number = number / 10;
+    if (number <= 0)
+    {
+      pow = 1;
+    }
+  }  
+
+  while (result_in_decimal_notation > 0)
+  {
+    static int i = 0;
+    result[i++] = char_to_int(result_in_decimal_notation % target);
+    result_in_decimal_notation = result_in_decimal_notation / target;
+    if (result_in_decimal_notation <= 0)
+    {
+      i = 0;
+    }
+  }
+
+  int length = strlen(result);
+  for (int i = 0; i < length / 2; i++)
+  {
+    result[i] = result[i] + result[length - 1 - i];
+    result[length - 1 - i] = result[i] - result[length - i - 1];
+    result[i] = result[i] - result[length - 1 - i];
+  }
+  printf("%s", result);
+}
+
+int main()
+{
+  int number;
+  int source;
+  int target;
+  scanf("%d %d %d", &number, &source, &target);
+  if (target > 36 || source > 10)
+  {
+    printf("error");
+  }
+  else
+  {
+    power(number, source, target);
+  }
+
+  return 0;
+}
