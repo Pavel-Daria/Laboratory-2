@@ -1,6 +1,15 @@
 #include <stdio.h>
 long get_fibbonachi_via_recursion(int);
 
+int main()
+{
+  int number;
+  scanf("%d", &number);
+  printf("%li", get_fibbonachi_via_recursion(number));
+
+  return 0;
+}
+
 long int massif[100];
 long get_fibbonachi_via_recursion(int number)
 {
@@ -19,11 +28,3 @@ long get_fibbonachi_via_recursion(int number)
   return massif[number];
 }
 
-int main()
-{
-  int number;
-  scanf("%d", &number);
-  printf("%li", get_fibbonachi_via_recursion(number));
-
-  return 0;
-}
