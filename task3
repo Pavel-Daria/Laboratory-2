@@ -3,6 +3,24 @@
 char int_to_char(int);
 void power(int, int, int);
 
+int main()
+{
+  int number;
+  int source;
+  int target;
+  scanf("%d %d %d", &number, &source, &target);
+  if (target > 36 || source > 10)
+  {
+    printf("error");
+  }
+  else
+  {
+    power(number, source, target);
+  }
+
+  return 0;
+}
+
 char int_to_char(int num)
 {
   if (num >= 0 && num <= 9)
@@ -59,22 +77,4 @@ void power(int number, int source, int target)
     result[i] = result[i] - result[length - 1 - i];
   }
   printf("%s", result);
-}
-
-int main()
-{
-  int number;
-  int source;
-  int target;
-  scanf("%d %d %d", &number, &source, &target);
-  if (target > 36 || source > 10)
-  {
-    printf("error");
-  }
-  else
-  {
-    power(number, source, target);
-  }
-
-  return 0;
 }
