@@ -1,8 +1,7 @@
 #include <stdio.h>
+long get_fibbonachi_via_recursion(int);
 
-long get_fibbonachi_via_recursion(int number);
 long int massif[100];
-
 long get_fibbonachi_via_recursion(int number)
 {
   if (massif[number] == 0)
